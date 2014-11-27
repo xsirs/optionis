@@ -77,6 +77,18 @@ ClientForm.prototype = {
             }
             return true;
     },
+    only_real_affirmed: function (bValid) {
+            var input_only = document.getElementById('only-real');
+            var error_only = clearInputErrorField('erroronly-real');
+            if (input_only && error_only) {
+                    if (input_tnc.checked === false)
+                    {
+                            error_only.innerHTML = text.localize('Please affirm that you have no other real currency accounts.');
+                            return false;
+                    }
+            }
+            return true;
+    },
     check_ip: function(IPSecurity)
     {
             var regexp_IPSecurity = /^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/;
